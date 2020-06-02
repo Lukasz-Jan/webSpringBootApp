@@ -14,9 +14,12 @@ public class MyBeanThird {
 	
 	@PostConstruct
 	public void init() {
-		System.out.println("MyBeanThird::init");
-		logger.info("MyBeanThird::init");
-		logger.debug("MyBeanThird::init");
+		
+		//	https://stackoverflow.com/questions/8716259/what-does-the-apr-based-apache-tomcat-native-library-was-not-found-mean
+		System.out.println("\nMyBeanThird::init");
+		logger.info("MyBeanThird::init info");
+		logger.debug("MyBeanThird::init debug");
+		logger.error("MyBeanThird::init error");
 	}
 
 	@PreDestroy
