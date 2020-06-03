@@ -19,6 +19,7 @@ public class MyBeanThird {
 		System.out.println("\nMyBeanThird::init");
 		logger.info("MyBeanThird::init info");
 		logger.debug("MyBeanThird::init debug");
+		logger.warn("MyBeanThird::init warn");
 		logger.error("MyBeanThird::init error");
 	}
 
@@ -30,5 +31,9 @@ public class MyBeanThird {
 	public void doSomething() {
 
 		System.out.println("MyBeanThird doSomething()");
+		logger.info("MyBeanThird::doSomething() info");
+		logger.warn("MyBeanThird::doSomething() warn");
+		logger.debug("MyBeanThird::doSomething() debug");
+		logger.error("MyBeanThird::doSomething() error");
 	}
 }
