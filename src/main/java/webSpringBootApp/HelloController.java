@@ -2,17 +2,16 @@ package webSpringBootApp;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PreDestroy;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
+import java.util.Arrays;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//	http://localhost:8080/start
+//	http://localhost:8080/hello
 //	http://192.168.0.38:8080/start
 
 //	https://github.com/spring-projects/spring-boot/issues/1239
@@ -23,11 +22,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //	https://spring.io/guides/gs/handling-form-submission/
 //	https://stackoverflow.com/questions/26794334/spring-boot-mvc-template-not-loading-404-not-found
 
+
+
+//	https://stackoverflow.com/questions/46060830/cannot-display-the-index-html-page-in-spring-boot
 //@RestController
 @Controller
 public class HelloController {
 
-
+	public static final Logger log = LoggerFactory.getLogger(HelloController.class);
+			
 	//	https://stackoverflow.com/questions/39077787/difference-between-the-annotations-getmapping-and-requestmappingmethod-requ	
 	
 	@RequestMapping("/")
@@ -43,10 +46,12 @@ public class HelloController {
 	@RequestMapping("/hello")
 	public String hello(Model model) {
 		
+		List<String> list = Arrays.asList("first", "second", "third", "fourth", "fifth");
 		
+		log.debug(list.toString());
 		
-		//applicationContext.close();
+		model.addAttribute("modelList_1", list);
 		
 		return "hello";
-	}	
+	}
 }
