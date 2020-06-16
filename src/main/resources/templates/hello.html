@@ -1,33 +1,54 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Spring Boot SLF4j Logback</title>
-		<!--link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/-->
-	</head>
-	<body>
+<head>
+<title>Spring Boot SLF4j Logback</title>
+<!--link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/-->
+</head>
+<body>
 
-		<h2>Spring Boot + SLF4j Logback example</h2>
+	<h2>Spring Boot + SLF4j Logback example</h2>
 
-		<ul>
-			<li th:each="counterStr : ${modelList_1}" th:text = "${counterStr}">
-			</li>
-		</ul>
+	<ul>
+		<li th:each="counterStr : ${modelList_1}" th:text="${counterStr}">
+		</li>
+	</ul>
 
-		<!-- 	https://stackoverflow.com/questions/15495538/tables-vs-ul-li -->
+	<!-- 	https://stackoverflow.com/questions/15495538/tables-vs-ul-li -->
 
-		<table>
+	<style>
+		td {
+			padding-right: 20px;
+		}
+	</style>
+
+	<!--  style>
+		td:nth-child(2) {
+			padding-right: 20px;
+		}
+	</style-->
+
+	<table>
+
+		<tr th:each="student : ${studentList_1}">
+
+			<td th:text="${student.id}"></td>
+			<td style="padding-right: 10px;">.</td>
+			<td th:text="${student.name}"></td>
+			<td th:text="${student.age}"></td>
 			
-			<!--th:block th:each="counterStr : ${modelList_1}">
-				<tr>
-					<td th:text = "${counterStr}"></td>
-				</tr>
-			</th:block-->
-				 <!--tr>
-					 <th>NAME</th>
-				</tr-->
-				<tr th:each="counterStr : ${modelList_1}">
-					 <td th:text = "${counterStr}"></td>
-				</tr>			
-		</table>
-	</body>
+			<td>
+				<p th:each="address: ${student.addresslist}">
+				
+					<span th:text="${address.city}">City</span>
+					<span th:text="${address.street}">City</span>
+					<span th:text="${address.houseNumber}">City</span>
+					<span th:text="${address.homeNumber}">Home number</span>
+				</p>
+			</td>
+
+		</tr>
+	</table>
+	
+	
+</body>
 </html>

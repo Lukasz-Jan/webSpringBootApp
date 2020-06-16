@@ -20,7 +20,7 @@ public class CloseController {
 	
 	@RequestMapping("/close")
 	public void close() {
-													//	int ExitCodeGenerator getExitCode
+													//	int ExitCodeGenerator::getExitCode()
 		 int exitCode = SpringApplication.exit(context,  () -> 0);
 		    System.exit(exitCode);		
 	}
