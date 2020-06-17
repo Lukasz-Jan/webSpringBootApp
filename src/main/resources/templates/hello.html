@@ -44,13 +44,13 @@
 			<td th:text="${student.age}"></td>
 			
 			<td>
-				<p th:each="address: ${student.addresslist}">
+				<div th:each="address: ${student.addresslist}">
 				
 					<span th:text="${address.city}">city</span>
 					<span th:text="${address.street}">street</span>
 					<span th:text="${address.houseNumber}">house number</span>
 					<span th:text="${address.homeNumber}">Home number</span>
-				</p>
+				</div>
 			</td>
 
 		</tr>
