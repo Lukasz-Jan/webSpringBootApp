@@ -15,22 +15,25 @@
 
 	<!-- 	https://stackoverflow.com/questions/15495538/tables-vs-ul-li -->
 	<!-- 	https://frontbackend.com/thymeleaf/using-th-each-in-thymeleaf -->
-	<style>
-		td {
-			padding-right: 20px;
-		}
-	</style>
+	<!--    https://stackoverflow.com/questions/2226562/what-is-the-difference-between-p-and-div -->
 
-	<!--  style>
-		td:nth-child(2) {
+	<!--style>
+		td, th {
 			padding-right: 20px;
 		}
 	</style-->
+
+	<style>
+		td:nth-child(2) {
+			padding-right: 20px;
+		}
+	</style>
 
 	<table>
 
 		<tr>
 			<th>id</th>
+			<th/>			
 			<th>name</th>
 			<th>age</th>
 			<th>Address list</th>
@@ -38,7 +41,8 @@
 		<tr th:each="student : ${studentList_1}">
 
 			<td th:text="${student.id}"></td>
-			<!--td style="padding-right: 10px;">.</td-->
+			<!--td>.</td-->
+			<td style="padding-right: 0px;">.</td>
 			<td th:text="${student.name}"></td>
 			<td th:text="${student.age}"></td>
 			
@@ -47,7 +51,7 @@
 				
 					<span th:text="${address.city}">city</span>
 					<span th:text="${address.street}">street</span>
-					<span th:text="${address.houseNumber}">house number</span>
+					<span th:text="${address.houseNumber}">house number</span>/
 					<span th:text="${address.homeNumber}">Home number</span>
 				</p>
 			</td>
