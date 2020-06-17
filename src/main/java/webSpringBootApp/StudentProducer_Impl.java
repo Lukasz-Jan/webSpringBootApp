@@ -32,7 +32,7 @@ public class StudentProducer_Impl implements StudentProducer {
 		PersonGenerator perGen = new PersonGenerator_Impl(); 
 		Person per = perGen.generatePerson();
 		
-
+		log.info(per.getPerson());
 		
 		Student st = new Student(id, per.getPerson(), generateAge(100), addressList );
 		

@@ -13,8 +13,8 @@ public class Person_Impl implements Person{
 
 	@Override
 	public String getPerson() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return this.person;
 	}
 	
 	
