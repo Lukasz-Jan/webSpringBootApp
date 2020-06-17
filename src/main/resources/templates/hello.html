@@ -31,6 +31,7 @@
 
 		<tr>
 			<th>id</th>
+			<th/>
 			<th>name</th>
 			<th>age</th>
 			<th>Address list</th>
@@ -38,7 +39,7 @@
 		<tr th:each="student : ${studentList_1}">
 
 			<td th:text="${student.id}"></td>
-			<!--td style="padding-right: 10px;">.</td-->
+			<td style="padding-right: 10px;">.</td>
 			<td th:text="${student.name}"></td>
 			<td th:text="${student.age}"></td>
 			
@@ -54,7 +55,5 @@
 
 		</tr>
 	</table>
-	
-	
 </body>
 </html>
