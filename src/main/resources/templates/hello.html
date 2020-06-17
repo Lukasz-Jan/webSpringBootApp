@@ -21,9 +21,14 @@
 		}
 	</style-->
 
+	<!-- nth-child formula is nth-child(an+b)  a = 0,1,2... -->
 	<style>
-		td:nth-child(2) {
-			padding-right: 20px;
+		td:nth-child(1n) {
+			padding-right: 40px;
+		}
+		th {
+			text-align: left;
+			<!-- border: 1px solid black;	-->
 		}
 	</style>
 
@@ -31,25 +36,26 @@
 
 		<tr>
 			<th>id</th>
-			<th/>
+			<!--  th/-->
 			<th>name</th>
 			<th>age</th>
 			<th>Address list</th>
 		</tr>
 		<tr th:each="student : ${studentList_1}">
 
-			<td th:text="${student.id}"></td>
-			<td style="padding-right: 10px;">.</td>
+			<td th:text="${student.id} + '.'"></td>
+			<!--td style="padding-left: 0px;">.</td-->
 			<td th:text="${student.name}"></td>
 			<td th:text="${student.age}"></td>
 			
 			<td>
 				<div th:each="address: ${student.addresslist}">
 				
-					<span th:text="${address.city}">city</span>
+					<!--span th:text="${address.city}">city</span>
 					<span th:text="${address.street}">street</span>
-					<span th:text="${address.houseNumber}">house number</span>
-					<span th:text="${address.homeNumber}">Home number</span>
+					<span th:text="${address.houseNumber} + '/'"></span>
+					<span th:text="${address.homeNumber}">Home number</span-->
+					<span th:text="${address.address}">Home number</span>
 				</div>
 			</td>
 

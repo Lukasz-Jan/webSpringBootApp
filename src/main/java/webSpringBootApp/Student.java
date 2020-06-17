@@ -3,12 +3,15 @@ package webSpringBootApp;
 import java.io.Serializable;
 import java.util.List;
 
+import interfaces.Address;
+
 
 public class Student implements Serializable {
 
 	private Integer id;
 	private String name;
 	private Integer age;
+
 
 	
 	public Integer getId() {
@@ -30,7 +33,7 @@ public class Student implements Serializable {
 		this.age = age;
 	}
 
-	public Student(Integer id, String name, Integer age, List<Adress> addresslist) {
+	public Student(Integer id, String name, Integer age, List<Address> addresslist) {
 
 		this.id = id;
 		this.name = name;
@@ -40,13 +43,13 @@ public class Student implements Serializable {
 
 
 	
-	List<Adress> addresslist;
+	List<Address> addresslist;
 
 
-	public List<Adress> getAddresslist() {
+	public List<Address> getAddresslist() {
 		return addresslist;
 	}
-	public void setAddresslist(List<Adress> addresslist) {
+	public void setAddresslist(List<Address> addresslist) {
 		this.addresslist = addresslist;
 	}
 	
