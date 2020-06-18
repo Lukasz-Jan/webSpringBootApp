@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot SLF4j Logback</title>
+<!--link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/-->
+</head>
+<body>
+
+	<h2>Spring Boot + SLF4j Logback example</h2>
+
+	<ul>
+		<li th:each="counterStr : ${modelList_1}" th:text="${counterStr}">
+		</li>
+	</ul>
+
+	<!-- 	https://stackoverflow.com/questions/15495538/tables-vs-ul-li -->
+
+	<!--style>
+		td {
+			padding-right: 20px;
+		}
+	</style-->
+
+	<!-- nth-child formula is nth-child(an+b)  a = 0,1,2... -->
+	<style>
+		td:nth-child(1n) {
+			padding-right: 40px;
+		}
+		th {
+			text-align: left;
+			<!-- border: 1px solid black;	-->
+		}
+	</style>
+
+	<table>
+
+		<tr>
+			<th>id</th>
+			<!--  th/-->
+			<th>name</th>
+			<th>age</th>
+			<th>Address list</th>
+		</tr>
+		<tr th:each="student : ${studentList_1}">
+
+			<td th:text="${student.id} + '.'"></td>
+			<!--td style="padding-left: 0px;">.</td-->
+			<td th:text="${student.name}"></td>
+			<td th:text="${student.age}"></td>
+			
+			<td>
+				<div th:each="address: ${student.addresslist}">
+				
+
+					<!-- span th:text="${address.houseNumber} + '/'"></span-->
+
+					
+					<span th:text="${address.city}">City</span>
+					<span th:text="${address.address}">Address</span>
+					<!--  span>    </span-->
+					
+					
+					<span style="margin-left: 20px" th:text="${address.houseNumber}">houseNumber</span>
+					<span>/</span>
+					<span th:text="${address.flatNumber}">flatNumber</span>
+				</div>
+			</td>
+
+		</tr>
+	</table>
+</body>
+</html>

@@ -56,9 +56,7 @@ public class HelloController {
 	@RequestMapping("/hello")
 	public String hello(Model model) {
 		
-		
 		//StudentProducer stProd = new StudentProducer_Impl();
-		
 		
 		List<Student> list = stProd.produceStudents();
 
