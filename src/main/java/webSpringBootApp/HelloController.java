@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloController {
 
+	@Autowired
+	private StudentProducer stProd;
+	
 	public static final Logger log = LoggerFactory.getLogger(HelloController.class);
 			
 	//	https://stackoverflow.com/questions/39077787/difference-between-the-annotations-getmapping-and-requestmappingmethod-requ	
@@ -53,7 +57,7 @@ public class HelloController {
 	public String hello(Model model) {
 		
 		
-		StudentProducer stProd = new StudentProducer_Impl();
+		//StudentProducer stProd = new StudentProducer_Impl();
 		
 		
 		List<Student> list = stProd.produceStudents();
@@ -64,6 +68,4 @@ public class HelloController {
 		
 		return "hello";
 	}
-	
-
 }

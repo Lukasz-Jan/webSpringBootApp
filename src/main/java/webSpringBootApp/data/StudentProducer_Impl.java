@@ -16,17 +16,15 @@ import webSpringBootApp.data.interfaces.StudentProducer;
 @Component
 public class StudentProducer_Impl implements StudentProducer {
 
-	
 	public static final Logger log = LoggerFactory.getLogger(StudentProducer_Impl.class);	 
-	
-	
+
 	public Student produceStudent(int id) {
 		
 		AddressGenerator adrGen = new AddressGenerator_Impl();
 		Address adr1 = adrGen.generateAddress(); 
 		Address adr2 = adrGen.generateAddress();
 		
-		List<Address> addressList= new ArrayList<Address>();
+		List<Address> addressList = new ArrayList<Address>();
 		addressList.add(adr1);
 		addressList.add(adr2);
 		
@@ -40,8 +38,7 @@ public class StudentProducer_Impl implements StudentProducer {
 		
 		return st;
 	}
-	
-	
+
 	public List<Student> produceStudents() {
 		
 		List<Student> studentsList = new ArrayList<Student>();
@@ -54,13 +51,12 @@ public class StudentProducer_Impl implements StudentProducer {
 		
 		return studentsList;
 	}
-	
-	
+
 	private int generateAge(int max) {
 
 		int rand = (int) (Math.random() * max);
 		log.info("rand: " + rand);
 
 		return rand;
-	}	
+	}
 }
