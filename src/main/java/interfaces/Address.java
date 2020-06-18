@@ -1,7 +1,8 @@
 package interfaces;
 
-public interface Address {
 
-	//String address = "";
+
+public interface Address {
+	
 	String getAddress();
 }

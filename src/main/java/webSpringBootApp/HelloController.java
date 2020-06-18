@@ -50,10 +50,6 @@ public class HelloController {
 	@RequestMapping("/hello")
 	public String hello(Model model) {
 		
-		//List<String> list = Arrays.asList("first", "second", "third", "fourth", "fifth");
-		
-		//log.debug(list.toString());
-		
 		
 		StudentProducer stProd = new StudentProducer_Impl();
 		

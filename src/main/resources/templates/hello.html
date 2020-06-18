@@ -51,11 +51,18 @@
 			<td>
 				<div th:each="address: ${student.addresslist}">
 				
-					<!--span th:text="${address.city}">city</span>
-					<span th:text="${address.street}">street</span>
-					<span th:text="${address.houseNumber} + '/'"></span>
-					<span th:text="${address.homeNumber}">Home number</span-->
-					<span th:text="${address.address}">Home number</span>
+
+					<!-- span th:text="${address.houseNumber} + '/'"></span-->
+
+					
+					<span th:text="${address.city}">City</span>
+					<span th:text="${address.address}">Address</span>
+					<!--  span>    </span-->
+					
+					
+					<span style="margin-left: 20px" th:text="${address.houseNumber}">houseNumber</span>
+					<span>/</span>
+					<span th:text="${address.flatNumber}">flatNumber</span>
 				</div>
 			</td>
 

@@ -13,26 +13,47 @@ public class AddressGenerator_Impl implements AddressGenerator {
 	@Override
 	public Address generateAddress() {
 
-		int rand = 8;
-		while (rand > 6) {
-
-			rand = (int) (Math.random() * 10);
-			log.info("rand: " + rand);
+		int streetsSize = streets.size()-1;
+		int citiesSize = cities.size()-1;
+		
+		if(streetsSize != citiesSize) { 
+			log.error("streets size not equal to cities size");
 		}
 		
-		String addressStr = streets.get(rand) + " " + houseNumGen(200) + homeNumGen(200);
-		
+		log.info("Streets size: " + (streetsSize + 1));
+		int rand = streets.size();
+		while (rand > streetsSize) {
 
-		Address adr = new Address_Impl(addressStr);
+			rand = (int) (Math.random() * 10);
+		}
+		
+		log.info("random street: " + streets.get(rand));
+		
+		String addressStr = streets.get(rand);		
+		
+		rand = cities.size();
+		
+		while(rand > citiesSize) {
+			
+			rand = (int)( Math.random()*10);
+		}
+		log.info("random City: " + cities.get(rand));
+		
+		String city = cities.get(rand);
+
+		
+		int homeNumber = homeNumGen(100); 
+		int flatNumber = flatNumGen(100);
+		
+		Address adr = new Address_Impl(addressStr, city, homeNumber, flatNumber);
 
 		return adr;
 	}
 
-	private int houseNumGen(int max) {
+	private int flatNumGen(int max) {
 
 		int rand = (int) (Math.random() * max);
 		log.info("rand: " + rand);
-
 		return rand;
 	}
 	
@@ -40,7 +61,6 @@ public class AddressGenerator_Impl implements AddressGenerator {
 
 		int rand = (int) (Math.random() * max);
 		log.info("rand: " + rand);
-
 		return rand;
 	}	
 }

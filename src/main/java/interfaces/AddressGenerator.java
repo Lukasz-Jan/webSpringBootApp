@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface AddressGenerator {
 	
-	final List<String> streets = Arrays.asList("Gdańsk Wajdeloty", "Warszawa Chrobrego", "Kraków Kaczyńskiego", "Sopot Hausnera", "Warszawa Niepodległości", "Warszawa Wawelska", "Gdańsk Płażyńskiego");
+	final List<String> streets = Arrays.asList("Wajdeloty", "Chrobrego", "Kaczyńskiego", "Hausnera", "Niepodległości", "Wawelska", "Płażyńskiego");
+	final List<String> cities = Arrays.asList("Gdańsk", "Warszawa", "Kraków", "Sopot", "Kopenhaga", "Marsylia", "Sromowce Niżne");
 
-	Address generateAddress();
+	public Address generateAddress();
 }
