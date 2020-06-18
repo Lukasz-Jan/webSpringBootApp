@@ -1,8 +1,8 @@
-package interfaces;
+package webSpringBootApp.data.interfaces;
 
 import java.util.List;
 
-import webSpringBootApp.Student;
+import webSpringBootApp.data.Student;
 
 public interface StudentProducer {
 

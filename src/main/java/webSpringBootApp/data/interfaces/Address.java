@@ -1,4 +1,4 @@
-package interfaces;
+package webSpringBootApp.data.interfaces;
 
 
 

@@ -2,7 +2,9 @@ package webSpringBootApp;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import interfaces.StudentProducer;
+import webSpringBootApp.data.interfaces.StudentProducer;
+import webSpringBootApp.data.Student;
+import webSpringBootApp.data.StudentProducer_Impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;

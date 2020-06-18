@@ -1,4 +1,4 @@
-package webSpringBootApp;
+package webSpringBootApp.data;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import interfaces.Person;
-import interfaces.PersonGenerator;
+import webSpringBootApp.data.interfaces.Person;
+import webSpringBootApp.data.interfaces.PersonGenerator;
 
 public class PersonGenerator_Impl implements PersonGenerator {
 

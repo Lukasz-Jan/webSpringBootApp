@@ -1,6 +1,6 @@
-package webSpringBootApp;
+package webSpringBootApp.data;
 
-import interfaces.Person;
+import webSpringBootApp.data.interfaces.Person;
 
 public class Person_Impl implements Person{
 

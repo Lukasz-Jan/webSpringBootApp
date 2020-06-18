@@ -1,17 +1,19 @@
-package webSpringBootApp;
+package webSpringBootApp.data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import interfaces.Address;
-import interfaces.AddressGenerator;
-import interfaces.Person;
-import interfaces.PersonGenerator;
-import interfaces.StudentProducer;
+import webSpringBootApp.data.interfaces.Address;
+import webSpringBootApp.data.interfaces.AddressGenerator;
+import webSpringBootApp.data.interfaces.Person;
+import webSpringBootApp.data.interfaces.PersonGenerator;
+import webSpringBootApp.data.interfaces.StudentProducer;
 
+@Component
 public class StudentProducer_Impl implements StudentProducer {
 
 	

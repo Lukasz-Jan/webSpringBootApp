@@ -1,6 +1,6 @@
-package webSpringBootApp;
+package webSpringBootApp.data;
 
-import interfaces.Address;
+import webSpringBootApp.data.interfaces.Address;
 
 
 public class Address_Impl implements Address{

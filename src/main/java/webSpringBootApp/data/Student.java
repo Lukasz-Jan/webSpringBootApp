@@ -1,9 +1,9 @@
-package webSpringBootApp;
+package webSpringBootApp.data;
 
 import java.io.Serializable;
 import java.util.List;
 
-import interfaces.Address;
+import webSpringBootApp.data.interfaces.Address;
 
 
 public class Student implements Serializable {

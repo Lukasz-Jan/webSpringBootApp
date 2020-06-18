@@ -1,7 +1,12 @@
+interfaces\AddressGenerator.class
+interfaces\Person.class
 webSpringBootApp\LaunchWebApp.class
 webSpringBootApp\MyBeanThird.class
 webSpringBootApp\MyBeanSecond.class
+interfaces\PersonGenerator.class
 webSpringBootApp\LaunchWebApp$1.class
 webSpringBootApp\CloseController.class
+interfaces\Address.class
 webSpringBootApp\WhatIsYourNameController.class
 webSpringBootApp\LaunchWebApp$MyBean.class
+interfaces\StudentProducer.class

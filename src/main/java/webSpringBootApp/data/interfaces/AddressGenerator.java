@@ -1,4 +1,4 @@
-package interfaces;
+package webSpringBootApp.data.interfaces;
 
 import java.util.ArrayList;
 import java.util.Arrays;
