@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import webSpringBootApp.data.interfaces.Address;
 import webSpringBootApp.data.interfaces.AddressGenerator;
@@ -13,7 +14,8 @@ import webSpringBootApp.data.interfaces.Person;
 import webSpringBootApp.data.interfaces.PersonGenerator;
 import webSpringBootApp.data.interfaces.StudentProducer;
 
-@Component
+//@Component
+@Service
 public class StudentProducer_Impl implements StudentProducer {
 
 	public static final Logger log = LoggerFactory.getLogger(StudentProducer_Impl.class);	 

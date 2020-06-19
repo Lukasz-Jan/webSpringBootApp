@@ -28,6 +28,12 @@ import org.springframework.context.annotation.Bean;
 //	https://stackoverflow.com/questions/23677808/how-to-run-spring-boot-web-application-in-eclipse-itself
 //	spring-boot:run
 
+//	https://spring.io/guides/gs/handling-form-submission/
+
+//	https://www.baeldung.com/jpa-mapping-single-entity-to-multiple-tables
+
+
+
 @SpringBootApplication(scanBasePackages = {"pagesPackage"})
 public class LaunchWebApp {
 

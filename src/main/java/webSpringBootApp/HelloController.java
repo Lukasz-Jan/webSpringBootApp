@@ -43,6 +43,9 @@ public class HelloController {
 			
 	//	https://stackoverflow.com/questions/39077787/difference-between-the-annotations-getmapping-and-requestmappingmethod-requ	
 	
+	
+//	The preceding example explicitly specifies POST and GET for the two endpoints. By default, @RequestMapping maps all HTTP operations.	
+	
 	@RequestMapping("/")
 	public String index() {
 		

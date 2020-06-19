@@ -14,7 +14,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -36,8 +38,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 //	good answear : https://stackoverflow.com/questions/34367316/spring-boot-autowired-does-not-work-classes-in-different-package
-//@SpringBootApplication(scanBasePackages = {"webSpringBootApp"})
-@Controller
+
+@Controller		//	DispatcherServlet will look for @RequestMapping on classes that are annotated using @Controller
+				//	but not with @Component.
+//
 @ComponentScan(basePackages = {"webSpringBootApp"})
 public class HelloControllerC {
 
