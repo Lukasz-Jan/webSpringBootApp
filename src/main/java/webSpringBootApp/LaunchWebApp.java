@@ -28,7 +28,7 @@ import org.springframework.context.annotation.Bean;
 //	https://stackoverflow.com/questions/23677808/how-to-run-spring-boot-web-application-in-eclipse-itself
 //	spring-boot:run
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"pagesPackage"})
 public class LaunchWebApp {
 
 	public static void main(String[] args ) {
