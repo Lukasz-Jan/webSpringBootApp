@@ -2,6 +2,7 @@ package webSpringBootApp;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import webSpringBootApp.data.interfaces.CountriesRepository;
 import webSpringBootApp.data.interfaces.StudentProducer;
 import webSpringBootApp.data.Student;
 import webSpringBootApp.data.StudentProducer_Impl;
@@ -12,6 +13,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,5 +71,14 @@ public class HelloController {
 		model.addAttribute("studentList_1", list);
 		
 		return "hello";
+	}
+	
+	
+	@Bean
+	  public CommandLineRunner demo(CountriesRepository repo) {
+	    return (args) -> {
+	    	
+	    	repo.findByCountryId("IL").forEach( c -> log.info(c.getCountryName()));
+	    };
 	}
 }
