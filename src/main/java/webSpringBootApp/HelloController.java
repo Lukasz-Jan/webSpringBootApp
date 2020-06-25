@@ -78,7 +78,7 @@ public class HelloController {
 	  public CommandLineRunner demo(CountriesRepository repo) {
 	    return (args) -> {
 	    	
-	    	repo.findByCountryId("IL").forEach( c -> log.info(c.getCountryName()));
+	    	repo.findByCountryId("AR").forEach( c -> log.info(c.getCountryName()));
 	    };
 	}
 }

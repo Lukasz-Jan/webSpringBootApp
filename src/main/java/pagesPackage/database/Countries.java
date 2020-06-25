@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-@Entity(name ="countries")
+//	https://www.baeldung.com/jpa-entities
+@Entity
 @Table(name = "Countries")		//	prawdziwa nazwa tabeli
 public class Countries {
 
@@ -26,7 +26,7 @@ public class Countries {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String countryId;
 	
 	@Column(name = "country_name")
