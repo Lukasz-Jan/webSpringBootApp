@@ -1,7 +1,9 @@
 package webSpringBootApp;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -14,6 +16,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 
 //	https://spring.io/guides/gs/spring-boot/
@@ -35,6 +38,9 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication(scanBasePackages = {"pagesPackage"})
+//@EnableAutoConfiguration
+//@ComponentScan
+//@EntityScan(basePackages = {"webSpringBootApp.data"})  // scan JPA entities
 public class LaunchWebApp {
 
 	public static void main(String[] args ) {
