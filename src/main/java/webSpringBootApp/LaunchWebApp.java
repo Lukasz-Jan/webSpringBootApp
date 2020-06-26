@@ -40,7 +40,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication(scanBasePackages = {"pagesPackage"})
 //@EnableAutoConfiguration
 //@ComponentScan
-//@EntityScan(basePackages = {"webSpringBootApp.data"})  // scan JPA entities
+@EntityScan(basePackages = {"webSpringBootApp.data"})  // scan JPA entities
 public class LaunchWebApp {
 
 	public static void main(String[] args ) {

@@ -34,6 +34,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //	https://stackoverflow.com/questions/46060830/cannot-display-the-index-html-page-in-spring-boot
 //	https://mkyong.com/spring-boot/spring-boot-slf4j-logging-example/
 
+//	spring-boot:run
+
 //@RestController
 @Controller
 public class HelloController {

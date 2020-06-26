@@ -22,7 +22,7 @@ public class Countries {
 	private String countryName;
 	
 	@Column(name="region_id")
-	private Integer regionId;
+	private int regionId;
 	
 	
 	public String getCountryId() {
