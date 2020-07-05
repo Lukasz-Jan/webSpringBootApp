@@ -2,11 +2,13 @@ package webSpringBootApp;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import webSpringBootApp.data.interfaces.CountriesRepository;
+
 import webSpringBootApp.data.interfaces.StudentProducer;
 import webSpringBootApp.data.Student;
 import webSpringBootApp.data.StudentProducer_Impl;
-import webSpringBootApp.data.Countries;
+
+//import webSpringBootApp.data.Countries;
+//import webSpringBootApp.data.interfaces.CountriesRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,6 +74,7 @@ public class HelloController {
 		return "hello";
 	}
 
+/*	
 	@Bean
 	public CommandLineRunner demo(CountriesRepository repository) {
 
@@ -81,4 +84,8 @@ public class HelloController {
 		};
 
 	}
+	*/
+	
+	
+	
 }

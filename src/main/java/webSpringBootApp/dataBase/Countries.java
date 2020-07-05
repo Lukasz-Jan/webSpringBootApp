@@ -1,4 +1,4 @@
-package webSpringBootApp.data;
+package webSpringBootApp.dataBase;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
 @Table(name="COUNTRIES")
 @Entity 
 public class Countries {
@@ -40,3 +41,4 @@ public class Countries {
 	
 	
 }
+*/

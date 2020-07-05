@@ -3,7 +3,6 @@ webSpringBootApp\MyBeanThird.class
 webSpringBootApp\data\StudentProducer_Impl.class
 webSpringBootApp\LaunchWebApp$1.class
 webSpringBootApp\CloseController.class
-webSpringBootApp\data\Countries.class
 pagesPackage\HelloControllerC.class
 webSpringBootApp\WhatIsYourNameController.class
 webSpringBootApp\LaunchWebApp$MyBean.class
@@ -19,4 +18,3 @@ webSpringBootApp\MyBeanSecond.class
 webSpringBootApp\data\interfaces\AddressGenerator.class
 webSpringBootApp\data\AddressGenerator_Impl.class
 webSpringBootApp\data\interfaces\Address.class
-webSpringBootApp\data\interfaces\CountriesRepository.class
