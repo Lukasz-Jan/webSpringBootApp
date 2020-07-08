@@ -17,6 +17,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 //	https://spring.io/guides/gs/spring-boot/
@@ -38,9 +39,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication(scanBasePackages = {"pagesPackage"})
+@EnableTransactionManagement
 //@EnableAutoConfiguration
 //@ComponentScan
-@EntityScan(basePackages = {"webSpringBootApp.data"})  // scan JPA entities
+@EntityScan(basePackages = {"webSpringBootApp.data", "webSpringBootApp.dataBase"})  // scan JPA entities
 public class LaunchWebApp {
 
 	public static void main(String[] args ) {

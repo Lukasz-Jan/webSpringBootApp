@@ -15,7 +15,7 @@ public class ServiceAgreement {
 	
 	@Id
 	@Column(name="sa_id")
-	private int saId;
+	private Integer saId;
 
 	
 	@Column(name="sa_type")
@@ -25,6 +25,22 @@ public class ServiceAgreement {
 	private String accoutId;
 	
 	@Column(name="sa_relation")
-	private String saRelation;	
+	private String saRelation;
+
+	public Integer getSaId() {
+		return saId;
+	}
+
+	public String getSaType() {
+		return saType;
+	}
+
+	public String getAccoutId() {
+		return accoutId;
+	}
+
+	public String getSaRelation() {
+		return saRelation;
+	}	
 	
 }

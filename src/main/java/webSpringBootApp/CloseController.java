@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//	http://localhost:8080/close
+//	 
 
 @RestController
 public class CloseController {
@@ -22,7 +22,7 @@ public class CloseController {
 	public void close() {
 													//	int ExitCodeGenerator::getExitCode()
 		 int exitCode = SpringApplication.exit(context,  () -> 0);
-		    System.exit(exitCode);		
+		    System.exit(exitCode);
 	}
 	
 	

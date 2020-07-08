@@ -5,14 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/*
+import org.springframework.transaction.annotation.Transactional;
+
+import webSpringBootApp.dataBase.Regions;
+
+
 @Table(name="COUNTRIES")
 @Entity 
+
 public class Countries {
 
 	protected Countries() {};
+	
+	public Countries(String countryId, String countryName, Regions region) {
+		
+		this.countryId = countryId;
+		this.countryName = countryName;
+		this.region =region; 
+	}
 	
 	@Id
 	@Column(name="country_id")
@@ -22,23 +36,29 @@ public class Countries {
 	@Column(name="country_name")
 	private String countryName;
 	
-	@Column(name="region_id")
-	private int regionId;
+	//@Column(name="region_id")
+	//private int regionId;
+	
+
+	@ManyToOne
+	@JoinColumn(name = "region_id")
+	private Regions region;
 	
 	
 	public String getCountryId() {
 		return countryId;
 	}
 
+
 	public String getCountryName() {
 		return countryName;
 	}
 
-	public Integer getRegionId() {
-		return regionId;
-	}
+//		public Integer getRegionId() {		return regionId;		}
 
+	public Regions getRegion() {
+		return region;
+	}
 	
 	
 }
-*/

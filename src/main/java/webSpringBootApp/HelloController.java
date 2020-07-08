@@ -1,18 +1,16 @@
 package webSpringBootApp;
 
-import org.springframework.web.bind.annotation.RestController;
-
-
 import webSpringBootApp.data.interfaces.StudentProducer;
+import webSpringBootApp.dataBase.interfaces.AgreementRepo;
 import webSpringBootApp.data.Student;
-import webSpringBootApp.data.StudentProducer_Impl;
-
-//import webSpringBootApp.data.Countries;
-//import webSpringBootApp.data.interfaces.CountriesRepository;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import webSpringBootApp.dataBase.Countries;
+import webSpringBootApp.dataBase.interfaces.CountriesRepository;
+import webSpringBootApp.dataBase.interfaces.RegionRepository;
+import webSpringBootApp.dataBase.interfaces.RegionRepositoryCustom;
+import webSpringBootApp.dataBase.Regions;
 import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +19,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 //	http://localhost:8080/hello
 //	http://192.168.0.38:8080/start
@@ -40,10 +40,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 //@RestController
 @Controller
+@EnableTransactionManagement
+@Transactional
 public class HelloController {
 
 	@Autowired
 	private StudentProducer stProd;
+
+	//@Autowired
+	//RegionRepositoryCustom regRepCustom;
+
+	// https://stackoverflow.com/questions/1962525/persistence-unit-as-resource-local-or-jta
+	//@PersistenceContext
+	//private EntityManager entityManager;
+
+
 
 	public static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
@@ -74,18 +85,77 @@ public class HelloController {
 		return "hello";
 	}
 
-/*	
-	@Bean
-	public CommandLineRunner demo(CountriesRepository repository) {
+	@Bean // void CommandLineRunner::run(args)
+	public CommandLineRunner demoCountries(CountriesRepository repoCountries, RegionRepository regionRepo) {
+		
+		
+		
+		Optional<Regions> regOpt = regionRepo.findById(1);
+		Regions reg = regOpt.get();
+		log.info(reg.getRegionName());
+		Countries polska = new Countries("PL", "Polska",  regOpt.get());
+		log.info("POLSKA");
+		Countries polska1 = repoCountries.save(polska);
+		log.info(polska1.getCountryId());
+		log.info("POLSKA saved");
+		
+		return (args) -> {
+			repoCountries.findAll().forEach(c -> log
+			        .info(c.getCountryName() + "                       from region " + c.getRegion().getRegionName()));
+		};
+	}
+
+	@Bean // Countries in Region is OneToMany
+	public CommandLineRunner countriesByRegion(RegionRepository regionRepo, RegionRepositoryCustom repoCustom) {
 
 		return (args) -> {
-			
-			repository.findAll().forEach( c -> log.info(c.getCountryName()) );
+			regionRepo.findAll().forEach(r -> {
+
+				
+				log.info("Countries in region " + r.getRegionName() + ":");
+				// r.getCountries().size();
+
+
+				//List<Countries> list = regRepCustom.getCountriesByRegion(r);
+				//regionRepo.
+				log.info("LOG 1 ");
+				List<Countries> list = repoCustom.findCountriesByRegion(r);
+				//regionRepo.
+				log.info("LOG 2 ");
+				if (list != null) {
+					log.info("list.size() " + list.size());
+
+					// writeCountriesInRegion(r);
+
+					for (Countries c : list) {
+						// Hibernate.initialize(c);
+						log.info("             " + c.getCountryName());
+					}
+				}
+
+			});
 		};
 
 	}
-	*/
-	
-	
-	
+	// https://stackoverflow.com/questions/36583185/spring-data-jpa-could-not-initialize-proxy-no-session-with-methods-marke
+
+
+
+	@Bean
+	public CommandLineRunner demoSa(AgreementRepo saAgrRepo) {
+
+		return (args) -> {
+
+			saAgrRepo.findAll().forEach(sa -> log.info("sa id: " + sa.getSaId().toString()));
+		};
+
+		// args -> { saAgrRepo.
+
+	}
+
+	// https://stackoverflow.com/questions/25063995/spring-boot-handle-to-hibernate-sessionfactory
+
+	// https://stackoverflow.com/questions/41480857/persistencecontext-not-injecting-entitymanager
+	// https://stackoverflow.com/questions/1962525/persistence-unit-as-resource-local-or-jta
+
 }
