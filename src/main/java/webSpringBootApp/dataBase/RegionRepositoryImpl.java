@@ -25,7 +25,7 @@ public class RegionRepositoryImpl {
 
 	
 	
-	@Transactional
+	//@Transactional
 	public List<Countries> findCountriesByRegionId(Integer reg) {
 
 		

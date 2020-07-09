@@ -27,62 +27,29 @@ public class RegionRepositoryCustomImpl implements RegionRepositoryCustom {
 	public List<Countries> getCountriesByRegionId(Integer reg) {
 
 		System.out.println("getCountriesByRegion CUSTOM");
-		// EntityManager entityManager = this.emf.createEntityManager();
 
 		if (entityManager != null) {
 
 			List<Countries> countries = entityManager.createQuery(
-			        "select co " +
-			                "from Countries co " +
-			                "where co.region.id = :regionId",
-			        Countries.class)
+			        "select co from Countries co where co.region.id = :regionId", Countries.class)
 			        .setParameter("regionId", reg)
 			        .getResultList();
 
 			return countries;
-		} else {
-			System.out.println("entityManager not open");
-
-			if (entityManager == null)
-				System.out.println("Entity manager is null");
-			return null;
 		}
-
-		// return null;
+		return null;
 	}
 
-	
-	
 	@Transactional
 	public List<Countries> findCountriesByRegion(Regions reg) {
 
-		System.out.println("getCountriesByRegion CUSTOM");
-		// EntityManager entityManager = this.emf.createEntityManager();
-
 		if (entityManager != null) {
-
 			List<Countries> countries = entityManager.createQuery(
-			        "select co " +
-			                "from Countries co " +
-			                "where co.region.id = :regionId",
-			        Countries.class)
+			        "select co from Countries co where co.region.id = :regionId", Countries.class)
 			        .setParameter("regionId", reg.getRegionId())
 			        .getResultList();
-
 			return countries;
-		} else {
-			System.out.println("entityManager not open");
-
-			if (entityManager == null)
-				System.out.println("Entity manager is null");
-
-			Object ob = new Object();
-			// ob.
-
-			return null;
 		}
-
-		// return null;
+		return null;
 	}
-
 }

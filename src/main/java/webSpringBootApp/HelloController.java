@@ -7,6 +7,8 @@ import webSpringBootApp.dataBase.Countries;
 import webSpringBootApp.dataBase.interfaces.CountriesRepository;
 import webSpringBootApp.dataBase.interfaces.RegionRepository;
 import webSpringBootApp.dataBase.interfaces.RegionRepositoryCustom;
+import webSpringBootApp.dataBase.interfaces.TestRepo;
+import webSpringBootApp.dataBase.interfaces.TestRepoExt;
 import webSpringBootApp.dataBase.Regions;
 import java.util.List;
 import java.util.Optional;
@@ -40,21 +42,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 //@RestController
 @Controller
-@EnableTransactionManagement
-@Transactional
+//@EnableTransactionManagement
+//@Transactional
 public class HelloController {
 
 	@Autowired
 	private StudentProducer stProd;
-
-	//@Autowired
-	//RegionRepositoryCustom regRepCustom;
-
-	// https://stackoverflow.com/questions/1962525/persistence-unit-as-resource-local-or-jta
-	//@PersistenceContext
-	//private EntityManager entityManager;
-
-
 
 	public static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
@@ -87,18 +80,11 @@ public class HelloController {
 
 	@Bean // void CommandLineRunner::run(args)
 	public CommandLineRunner demoCountries(CountriesRepository repoCountries, RegionRepository regionRepo) {
-		
-		
-		
-		Optional<Regions> regOpt = regionRepo.findById(1);
-		Regions reg = regOpt.get();
-		log.info(reg.getRegionName());
-		Countries polska = new Countries("PL", "Polska",  regOpt.get());
-		log.info("POLSKA");
-		Countries polska1 = repoCountries.save(polska);
-		log.info(polska1.getCountryId());
-		log.info("POLSKA saved");
-		
+
+		// Optional<Regions> regOpt = regionRepo.findById(1);
+		// Countries polska = new Countries("PL", "Polska", regOpt.get());
+		// repoCountries.save(polska);
+
 		return (args) -> {
 			repoCountries.findAll().forEach(c -> log
 			        .info(c.getCountryName() + "                       from region " + c.getRegion().getRegionName()));
@@ -111,26 +97,11 @@ public class HelloController {
 		return (args) -> {
 			regionRepo.findAll().forEach(r -> {
 
-				
 				log.info("Countries in region " + r.getRegionName() + ":");
-				// r.getCountries().size();
-
-
-				//List<Countries> list = regRepCustom.getCountriesByRegion(r);
-				//regionRepo.
-				log.info("LOG 1 ");
 				List<Countries> list = repoCustom.findCountriesByRegion(r);
-				//regionRepo.
-				log.info("LOG 2 ");
-				if (list != null) {
-					log.info("list.size() " + list.size());
-
-					// writeCountriesInRegion(r);
-
-					for (Countries c : list) {
-						// Hibernate.initialize(c);
-						log.info("             " + c.getCountryName());
-					}
+				for (Countries c : list) {
+					// Hibernate.initialize(c);
+					log.info("             " + c.getCountryName());
 				}
 
 			});
@@ -139,8 +110,6 @@ public class HelloController {
 	}
 	// https://stackoverflow.com/questions/36583185/spring-data-jpa-could-not-initialize-proxy-no-session-with-methods-marke
 
-
-
 	@Bean
 	public CommandLineRunner demoSa(AgreementRepo saAgrRepo) {
 
@@ -148,8 +117,30 @@ public class HelloController {
 
 			saAgrRepo.findAll().forEach(sa -> log.info("sa id: " + sa.getSaId().toString()));
 		};
+	}
 
-		// args -> { saAgrRepo.
+	@Bean
+	public CommandLineRunner testBean(TestRepo testR) {
+
+		return (args) -> {
+
+			log.info("TEST BEAN");
+			System.out.println("TEST BEAN");
+			testR.findAll().forEach(
+
+			        reg -> {
+
+			            // testR.findCountriesByRegionId(reg.getRegionId()).forEach(
+			            // c-> log.info(c.getCountryName()) );
+			            // testR.findCountriesByRegionId().forEach( c->
+			            // log.info(c.getCountryName()) );
+			            //testR.findCountriesByRegion(reg).forEach(c -> log.info(c.getCountryName()));
+			        	//testR.findCountriesByRegionTest(reg).forEach(c -> log.info(c.getCountryName()));
+			        	//((TestRepoExt)testR).findCountriesByRegionId(reg.getRegionId()).forEach(c -> log.info(c.getCountryName()));
+			        	testR.findCountriesByRegionId(reg.getRegionId()).forEach(c -> log.info(c.getCountryName()));
+			        });
+
+		};
 
 	}
 

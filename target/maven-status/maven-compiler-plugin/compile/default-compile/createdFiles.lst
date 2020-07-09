@@ -14,8 +14,10 @@ webSpringBootApp\data\Address_Impl.class
 webSpringBootApp\data\PersonGenerator_Impl.class
 webSpringBootApp\data\interfaces\StudentProducer.class
 webSpringBootApp\HelloController.class
+webSpringBootApp\dataBase\interfaces\TestRepo.class
 webSpringBootApp\dataBase\interfaces\AgreementRepo.class
 webSpringBootApp\data\Person_Impl.class
+webSpringBootApp\dataBase\interfaces\TestRepoExt.class
 webSpringBootApp\dataBase\ServiceAgreement.class
 webSpringBootApp\data\interfaces\Person.class
 webSpringBootApp\LaunchWebApp.class
@@ -23,6 +25,7 @@ webSpringBootApp\data\Student.class
 webSpringBootApp\MyBeanSecond.class
 webSpringBootApp\dataBase\RegionRepositoryImpl.class
 webSpringBootApp\dataBase\Regions.class
+webSpringBootApp\dataBase\TestRepoExtImpl.class
 webSpringBootApp\data\interfaces\AddressGenerator.class
 webSpringBootApp\data\AddressGenerator_Impl.class
 webSpringBootApp\data\interfaces\Address.class

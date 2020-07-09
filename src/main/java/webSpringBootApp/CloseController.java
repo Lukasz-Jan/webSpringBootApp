@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//	 
+//	 http://localhost:8080/close
 
 @RestController
 public class CloseController {

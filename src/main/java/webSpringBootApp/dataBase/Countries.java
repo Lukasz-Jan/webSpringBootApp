@@ -31,6 +31,7 @@ public class Countries {
 	@Id
 	@Column(name="country_id")
 	//@GeneratedValue(strategy=GenerationType.AUTO)
+	// auto generation is when we not give new countryId when creating new instances
 	private String countryId;
 	
 	@Column(name="country_name")
