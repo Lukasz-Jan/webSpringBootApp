@@ -39,6 +39,8 @@ public class RegionRepositoryCustomImpl implements RegionRepositoryCustom {
 		}
 		return null;
 	}
+	
+	
 
 	@Transactional
 	public List<Countries> findCountriesByRegion(Regions reg) {

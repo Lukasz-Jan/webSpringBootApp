@@ -5,13 +5,21 @@ import webSpringBootApp.dataBase.interfaces.AgreementRepo;
 import webSpringBootApp.data.Student;
 import webSpringBootApp.dataBase.Countries;
 import webSpringBootApp.dataBase.interfaces.CountriesRepository;
+import webSpringBootApp.dataBase.interfaces.CountriesRepositoryOne;
 import webSpringBootApp.dataBase.interfaces.RegionRepository;
 import webSpringBootApp.dataBase.interfaces.RegionRepositoryCustom;
 import webSpringBootApp.dataBase.interfaces.TestRepo;
 import webSpringBootApp.dataBase.interfaces.TestRepoExt;
 import webSpringBootApp.dataBase.Regions;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,13 +50,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 //@RestController
 @Controller
-//@EnableTransactionManagement
-//@Transactional
+// @EnableTransactionManagement
+// @Transactional
 public class HelloController {
 
 	@Autowired
 	private StudentProducer stProd;
-
 	public static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
 	// https://stackoverflow.com/questions/39077787/difference-between-the-annotations-getmapping-and-requestmappingmethod-requ
@@ -78,71 +85,7 @@ public class HelloController {
 		return "hello";
 	}
 
-	@Bean // void CommandLineRunner::run(args)
-	public CommandLineRunner demoCountries(CountriesRepository repoCountries, RegionRepository regionRepo) {
 
-		// Optional<Regions> regOpt = regionRepo.findById(1);
-		// Countries polska = new Countries("PL", "Polska", regOpt.get());
-		// repoCountries.save(polska);
-
-		return (args) -> {
-			repoCountries.findAll().forEach(c -> log
-			        .info(c.getCountryName() + "                       from region " + c.getRegion().getRegionName()));
-		};
-	}
-
-	@Bean // Countries in Region is OneToMany
-	public CommandLineRunner countriesByRegion(RegionRepository regionRepo, RegionRepositoryCustom repoCustom) {
-
-		return (args) -> {
-			regionRepo.findAll().forEach(r -> {
-
-				log.info("Countries in region " + r.getRegionName() + ":");
-				List<Countries> list = repoCustom.findCountriesByRegion(r);
-				for (Countries c : list) {
-					// Hibernate.initialize(c);
-					log.info("             " + c.getCountryName());
-				}
-
-			});
-		};
-
-	}
-	// https://stackoverflow.com/questions/36583185/spring-data-jpa-could-not-initialize-proxy-no-session-with-methods-marke
-
-	@Bean
-	public CommandLineRunner demoSa(AgreementRepo saAgrRepo) {
-
-		return (args) -> {
-
-			saAgrRepo.findAll().forEach(sa -> log.info("sa id: " + sa.getSaId().toString()));
-		};
-	}
-
-	@Bean
-	public CommandLineRunner testBean(TestRepo testR) {
-
-		return (args) -> {
-
-			log.info("TEST BEAN");
-			System.out.println("TEST BEAN");
-			testR.findAll().forEach(
-
-			        reg -> {
-
-			            // testR.findCountriesByRegionId(reg.getRegionId()).forEach(
-			            // c-> log.info(c.getCountryName()) );
-			            // testR.findCountriesByRegionId().forEach( c->
-			            // log.info(c.getCountryName()) );
-			            //testR.findCountriesByRegion(reg).forEach(c -> log.info(c.getCountryName()));
-			        	//testR.findCountriesByRegionTest(reg).forEach(c -> log.info(c.getCountryName()));
-			        	//((TestRepoExt)testR).findCountriesByRegionId(reg.getRegionId()).forEach(c -> log.info(c.getCountryName()));
-			        	testR.findCountriesByRegionId(reg.getRegionId()).forEach(c -> log.info(c.getCountryName()));
-			        });
-
-		};
-
-	}
 
 	// https://stackoverflow.com/questions/25063995/spring-boot-handle-to-hibernate-sessionfactory
 

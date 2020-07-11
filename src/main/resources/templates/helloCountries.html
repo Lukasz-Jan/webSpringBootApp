@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot SLF4j Logback</title>
+<!--link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/-->
+</head>
+<body>
+
+	<h2>Hello Countries</h2>
+
+
+	<style> 
+	</style>
+
+	<table>
+		<tr>
+			<th>country id</th>
+			<th>name</th>
+			<th>region</th>
+		</tr>
+		<t r th:each="countries : ${countriesList_1}">
+
+			<td th:text="${countries.countryId}"></td>
+			<td th:text="${countries.countryName}"></td>
+			<td th:text="${countries.region.regionName}"></td>
+
+		</tr>
+	</table>
+</body>
+</html>

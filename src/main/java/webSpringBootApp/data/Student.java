@@ -41,16 +41,14 @@ public class Student implements Serializable {
 		this.addresslist = addresslist;
 	}
 
-
-	
 	List<Address> addresslist;
-
 
 	public List<Address> getAddresslist() {
 		return addresslist;
 	}
+
 	public void setAddresslist(List<Address> addresslist) {
 		this.addresslist = addresslist;
 	}
-	
+
 }

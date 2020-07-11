@@ -86,4 +86,9 @@ public class Regions {
 	public void setCountries(List<Countries> countries) {
 		this.countries = countries;
 	}
+	
+	public String toString() {
+		
+		return getRegionName();
+	}
 }

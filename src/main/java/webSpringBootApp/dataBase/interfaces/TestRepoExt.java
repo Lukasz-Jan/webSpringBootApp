@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import webSpringBootApp.dataBase.Countries;
 import webSpringBootApp.dataBase.Regions;
 
-//	@NoRepositoryBean
+
 public interface TestRepoExt {
 
 	//@Query("SELECT NEW webSpringBootApp.dataBase.Countries(co.getCountryId(), co.getCountryName(), co.getRegion()) FROM Countries co where co.region.id = :regId")
@@ -21,7 +21,7 @@ public interface TestRepoExt {
 	//@Query("SELECT co FROM Countries co where co.region.id = 1")
 	//public List<Countries> findCountriesByRegionId();
 	
-	@Query("SELECT co FROM Countries co where co.region.id = :regId")
+	//@Query("SELECT co FROM Countries co where co.region.id = :regId")
 	public List<Countries> findCountriesByRegionId(@Param("regId") Integer reg);
 	
 	      //select co from Countries co where co.region.id = :regionId
