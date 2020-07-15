@@ -90,7 +90,6 @@ public class LaunchWebApp {
                 System.exit(0);
             }
         };
-   
     }
     
     //	https://stackoverflow.com/questions/21520316/the-annotation-bean-is-disallowed-for-this-location-error/21520759
@@ -128,7 +127,11 @@ public class LaunchWebApp {
     }
     	
     
-    
+    @Bean
+    CommandLineRunner updateStudentsRunner() {
+    	
+    	return new UpdateStudentsRunner();
+    }
     
 	
 			// CommandLineRunner::run(String... args) : void
