@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+
+import webSpringBootApp.dataBase.interfaces.StudentRepo;
 import webSpringBootApp.dataBase.interfaces.StudentRepoExt;
 import webSpringBootApp.entities.Students;
 
@@ -16,6 +18,7 @@ public class UpdateStudentsRunner implements CommandLineRunner {
 	@Autowired
 	StudentRepoExt stRepo;
 
+
 	public void run(String... args) {
 
 		final List<String> persons = Arrays.asList("Marek Łoś", "Krzysztof Marks", "Krzysztof Kluczyk",
@@ -23,13 +26,16 @@ public class UpdateStudentsRunner implements CommandLineRunner {
 
 		for (String per : persons) {
 
-			Students st = stRepo.getStudentByName(per);
+			//Students st = stRepo.getStudentByName(per);
+			
+			String studentName = stRepo.getStudentByName(per);
+			
 
-			if (st == null) {
+			if (studentName == null) {
 				Students stAdd = new Students(per, generateAge(40));
 				stRepo.save(stAdd);
 			} else
-				log.info("Student already added");
+				log.info("Student already added: " + studentName);
 		}
 	}
 
