@@ -42,7 +42,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 //@EnableAutoConfiguration
 //@ComponentScan
-@EntityScan(basePackages = {"webSpringBootApp.data", "webSpringBootApp.dataBase"})  // scan JPA entities
+@EntityScan(basePackages = {"webSpringBootApp.data", "webSpringBootApp.dataBase", "webSpringBootApp.entities"})  // scan JPA entities
+// really runs had to add webSpringBootApp.entities for Students entity to be add to the database
+// runs with below settings:
+//	spring.jpa.generate-ddl=false 	
+//	#set none to use schema.sql	spring.jpa.hibernate.ddl-auto=update
+
 public class LaunchWebApp {
 
 	public static void main(String[] args ) {
@@ -50,8 +55,6 @@ public class LaunchWebApp {
 		ConfigurableApplicationContext ctx = SpringApplication.run(LaunchWebApp.class,  args);
 		
 		System.out.println("LaunchWebApp RUN");
-		
-		
 		
 		MyBean myBean = ctx.getBean(MyBean.class);
         myBean.doSomething();
